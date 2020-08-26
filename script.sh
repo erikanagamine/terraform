@@ -37,6 +37,6 @@ docker-compose --version
 
 cd bigdata_docker
 
-docker-compose up -d 
+sudo docker-compose up -d 
 
 docker image ls

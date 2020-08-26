@@ -1,4 +1,5 @@
 #!/bin/bash
+set +x
 # sleep until instance is ready
 until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
   sleep 1

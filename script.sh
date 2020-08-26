@@ -1,6 +1,9 @@
 #!/bin/bash
 set +x
 
+#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
+#  sleep 1
+#done
 
 # install nginx
 sudo apt-get update -y
@@ -14,7 +17,7 @@ cd /tmp/install
 
 git clone https://github.com/fabiogjardim/bigdata_docker.git
 
-sudo apt install x11-apps
+sudo apt install x11-apps -y
 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 

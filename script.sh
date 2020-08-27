@@ -49,7 +49,7 @@ chmod +x /usr/local/bin/docker-machine
 
 sudo chmod +x /usr/local/bin/docker-compose
 
-docker-compose --version
+sudo docker-compose --version
 
 cd bigdata_docker
 echo "Start docker compose - " `date`
@@ -57,4 +57,4 @@ sudo docker-compose up -d
 echo "Finish docker compose - " `date`
 
 echo "List images - " `date`
-docker image ls
+sudo docker image ls

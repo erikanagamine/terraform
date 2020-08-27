@@ -1,24 +1,35 @@
 #!/bin/bash
 set +x
 
-#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
-#  sleep 1
-#done
+echo "Start - " `date`
+
+until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
+  sleep 1
+  echo "provision not finished yet - " `date`
+done
+
+echo "Install reverse proxy - " `date`
 
 # install nginx
 sudo apt-get update -y
 sudo apt-get -y install nginx
+
 # make sure nginx is started
 sudo service nginx start
+
+echo "Preparing environment to install - " `date`
 
 mkdir /tmp/install
 
 cd /tmp/install
 
+echo "Cloning docker files - " `date`
 git clone https://github.com/fabiogjardim/bigdata_docker.git
 
+echo "Install X11 - " `date`
 sudo apt install x11-apps -y
 
+echo "Install docker - " `date`
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 curl -fsSL get.docker.com -o get.docker.sh
@@ -39,7 +50,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
 cd bigdata_docker
-
+echo "Start docker compose - " `date`
 sudo docker-compose up -d 
+echo "Finish docker compose - " `date`
 
+echo "List images - " `date`
 docker image ls

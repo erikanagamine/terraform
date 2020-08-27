@@ -3,7 +3,8 @@ set +x
 
 echo "Start - " `date`
 
-until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
+until [ -f /var/lib/cloud/instance/boot-finished ]
+do
   sleep 1
   echo "provision not finished yet - " `date`
 done

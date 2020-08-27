@@ -37,6 +37,7 @@ curl -fsSL get.docker.com -o get.docker.sh
 sh -x get.docker.sh
 
 sudo usermod -aG docker ubuntu
+sudo usermod -aG docker $USER
 
 sudo docker version
 

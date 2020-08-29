@@ -25,7 +25,7 @@ mkdir /tmp/install
 cd /tmp/install
 
 echo "Cloning docker files - " `date`
-git clone https://github.com/fabiogjardim/bigdata_docker.git
+#git clone https://github.com/fabiogjardim/bigdata_docker.git
 
 echo "Install X11 - " `date`
 sudo apt install x11-apps -y
@@ -51,10 +51,18 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 sudo docker-compose --version
 
-cd bigdata_docker
-echo "Start docker compose - " `date`
-sudo docker-compose up -d 
-echo "Finish docker compose - " `date`
+#cd bigdata_docker
+#echo "Start docker compose - " `date`
+#sudo docker-compose up -d 
+#echo "Finish docker compose - " `date`
 
-echo "List images - " `date`
-sudo docker image ls
+#echo "List images - " `date`
+#sudo docker image ls
+
+sudo apt-get install r-base
+
+sudo apt-get install gdebi-core
+wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.3.1073-amd64.deb
+sudo gdebi rstudio-server-1.3.1073-amd64.deb
+
+
